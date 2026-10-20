@@ -118,9 +118,13 @@ server.get('/', (req, res) => {
 
 server.get('/stil.css', (_, res) => {
 	try {
-		return res.status(200).type('text/css').send(fs.readFileSync('./stil.css'));
+		return res
+			.status(200)
+			.setHeader('Cache-Control', 'public, max-age=86400')
+			.type('text/css')
+			.send(fs.readFileSync('./stil.css'));
 	} catch (error) {
-		console.error('Failed to read stylesheet:', error);
+		console.error('Malsukceso legante stilfolion:', error);
 		return res.status(500).render('er5xx', {
 			errorMessage:
 				'Ne povis legi la stilfolion. / No se pudo leer la hoja de estilos.'
@@ -131,10 +135,11 @@ server.get('/favicon.ico', (_, res) => {
 	try {
 		return res
 			.status(200)
+			.setHeader('Cache-Control', 'public, max-age=86400')
 			.type('image/x-icon')
 			.send(fs.readFileSync('./favicon.ico'));
 	} catch (error) {
-		console.error('Ne povis legi ikonon:', error);
+		console.error('Malsukceso legante ikonon:', error);
 		return res.status(500).render('er5xx', {
 			errorMessage: 'Ne povis legi la ikonon. / No se pudo leer el icono.'
 		});
@@ -150,6 +155,17 @@ server.get('/elsaluti', async (req, res) => {
 		}
 	}
 	return res.clearCookie('seanco').redirect('/');
+});
+
+server.use((req, res, next) => {
+	// Excluimos la hoja de estilos e icono para que sigan usando su propia caché de 24h
+	if (!['/stil.css', '/favicon.ico'].includes(req.path)) {
+		res.setHeader(
+			'Cache-Control',
+			'no-store, no-cache, must-revalidate, private'
+		);
+	}
+	next();
 });
 
 // ==========================================
