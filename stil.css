@@ -28,14 +28,43 @@ body {
 	color: gray;
 }
 
+.butono {
+	padding: 15px 32px;
+	font-family: inherit;
+	border-radius: 4px;
+}
+
+.butono-sendi {
+	background-color: darkblue;
+	color: white;
+}
+
+.butono-sercxi {
+	background-color: darkblue;
+	color: white;
+}
+
+.butono-ensaluti {
+	background-color: darkblue;
+	color: white;
+}
+
+input {
+	font: inherit;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
 @media (prefers-color-scheme: dark) {
 	body {
-		background: black;
+		background-color: black;
 		color: white;
 	}
 
 	a {
-		color: #008cff;
+		color: #00bfff;
 	}
 
 	a:visited {
@@ -46,9 +75,5 @@ body {
 	.pli-ol-nul,
 	.tx-aprobita {
 		color: yellowgreen;
-	}
-
-	.tx-atendanta {
-		color: orange;
 	}
 }

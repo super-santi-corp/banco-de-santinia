@@ -35,11 +35,17 @@
         </main>
         <form action="/es/consultar-tx">
             <label for="txid">Id. de transacción: </label>
-            <input type="text" id="txid" name="id" required />
+            <input type="text"
+                id="txid"
+                name="id"
+                maxlength="36"
+                placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+                required
+            />
             
             <br /><br />
             
-            <button type="submit">Buscar</button>
+            <button class="butono butono-sercxi" type="submit">Buscar</button>
         </form>
     </body>
 </html>

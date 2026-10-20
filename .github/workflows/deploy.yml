@@ -1,0 +1,14 @@
+on:
+    push:
+        branches:
+            - main
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v3
+              
+            - name: Trigger deploy
+              run: curl ${{ secrets.DEPLOY_HOOK }}
+              

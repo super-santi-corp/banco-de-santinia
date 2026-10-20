@@ -29,7 +29,7 @@
 					<%= formatCurrency(amount) %>
 				</span>
 				<br />
-				<strong>Dato kaj tempo (GMT -5): </strong>
+				<strong>Dato kaj tempo (GMT <%= TIME_SHIFT >= 0 ? '+'.concat(TIME_SHIFT) : TIME_SHIFT %>): </strong>
 				<%= esperantoDate(new Date(datetime), TIME_SHIFT) %><br />
 				<strong>Kialo: </strong> <%= purpose %>
 				<% if (txId !== null) { %>

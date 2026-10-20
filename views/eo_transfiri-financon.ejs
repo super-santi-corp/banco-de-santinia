@@ -12,7 +12,14 @@
 			<form action="/eo/transfiri-financon" method="post">
 				<input type="hidden" name="idem" value="<%= idempotencyNonce %>" />
 				<label for="payee">Nombro de ricevanta konto: </label>
-				<input type="text" id="payee" name="ricevanto" maxlength="18" required />
+				<input
+					type="text"
+					id="payee"
+					name="ricevanto"
+					maxlength="18"
+					placeholder="18 ciferoj, sen streketoj"
+					required
+				/>
 				<br />
 				<label for="amount">Kvanto: </label>
 				<input
@@ -21,14 +28,21 @@
 					name="kvanto"
 					min="0"
 					step="0.01"
+					placeholder="Transfironta kvanto (proksimumigita je du decimaloj)"
 					required
 				/>
 				<br />
 				<label for="purpose">Kialo: </label>
-				<input type="text" id="purpose" name="kialo" maxlength="256" />
+				<input
+					type="text"
+					id="purpose"
+					name="kialo"
+					maxlength="256"
+					placeholder="Ĝis 256 karakteroj"
+				/>
 				<br />
 				<br />
-				<button type="submit">Transfiri financon</button>
+				<button class="butono butono-sendi" type="submit">Transfiri financon</button>
 			</form>
 		</main>
 	</body>

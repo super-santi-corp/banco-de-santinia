@@ -19,6 +19,7 @@ const server = express();
 const port = Number(process.env.PORT ?? 8080);
 const MONGO_URI = process.env.MONGO_URI ?? 'mongodb://localhost:27017';
 const DB_NAME = process.env.DB_NAME ?? 'bank';
+const stylesheet = fs.readFileSync('./stil.css');
 
 // Conexión y colecciones de MongoDB
 let client: MongoClient;
@@ -123,7 +124,7 @@ server.get('/stil.css', (_, res) => {
 			.status(200)
 			.setHeader('Cache-Control', 'public, max-age=86400')
 			.type('text/css')
-			.send(fs.readFileSync('./stil.css'));
+			.send(stylesheet);
 	} catch (error) {
 		console.error('Malsukceso legante stilfolion:', error);
 		return res.status(500).render('er5xx', {

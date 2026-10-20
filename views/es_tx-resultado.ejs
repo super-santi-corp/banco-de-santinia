@@ -29,7 +29,7 @@
 					<%= formatCurrency(amount) %>
 				</span>
 				<br />
-				<strong>Fecha y hora (GMT -5): </strong>
+				<strong>Fecha y hora (GMT <%= TIME_SHIFT >= 0 ? '+'.concat(TIME_SHIFT) : TIME_SHIFT %>): </strong>
 				<%= spanishDate(new Date(datetime), TIME_SHIFT) %><br />
 				<strong>Por concepto de: </strong> <%= purpose %>
 				<% if (txId !== null) { %>

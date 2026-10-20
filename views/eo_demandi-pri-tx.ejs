@@ -35,11 +35,18 @@
         </main>
         <form action="/eo/demandi-pri-tx">
             <label for="txid">Transakcia identigilo: </label>
-            <input type="text" id="txid" name="id" required />
+            <input
+                type="text"
+                id="txid"
+                name="id"
+                maxlength="36"
+                placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+                required
+            />
             
             <br /><br />
             
-            <button type="submit">Serĉi</button>
+            <button class="butono butono-sercxi" type="submit">Serĉi</button>
         </form>
     </body>
 </html>
