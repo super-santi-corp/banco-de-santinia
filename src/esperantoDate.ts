@@ -1,4 +1,5 @@
-export default function esperantoDate(date: Date) {
+export default function esperantoDate(date: Date, shift: number) {
+	const shiftedDate = new Date(date.getTime() + shift * 60 * 60 * 1000);
 	const weekdayWords = [
 		'Dimanĉo',
 		'Lundo',
@@ -23,13 +24,13 @@ export default function esperantoDate(date: Date) {
 		'decembro'
 	];
 
-	const weekday = weekdayWords[date.getDay()]; // 0 = Sunday, 1 = Monday ... 6 = Saturday
-	const monthday = String(date.getDate());
-	const month = monthWords[date.getMonth()]; // 0 = January, 1 = February ... 11 = December
-	const year = String(date.getFullYear());
-	const militaryHours = date.getHours();
-	const minutes = date.getMinutes();
-	const seconds = date.getSeconds();
+	const weekday = weekdayWords[shiftedDate.getUTCDay()]; // 0 = Sunday, 1 = Monday ... 6 = Saturday
+	const monthday = String(shiftedDate.getUTCDate());
+	const month = monthWords[shiftedDate.getUTCMonth()]; // 0 = January, 1 = February ... 11 = December
+	const year = String(shiftedDate.getUTCFullYear());
+	const militaryHours = shiftedDate.getUTCHours();
+	const minutes = shiftedDate.getUTCMinutes();
+	const seconds = shiftedDate.getUTCSeconds();
 	const hours = String(militaryHours % 12 || 12);
 	const paddedMinutes =
 		minutes >= 10 ? String(minutes) : '0'.concat(String(minutes));

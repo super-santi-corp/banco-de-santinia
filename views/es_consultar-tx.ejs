@@ -28,7 +28,7 @@
             <strong>Id. de transacción:</strong> <code><%= tx.id %></code><br />
             <strong>Monto:</strong> <%= formatCurrency(tx.amount) %><br />
             <strong>Por concepto de:</strong> <%= tx.purpose %><br />
-            <strong>Fecha y hora:</strong> <%= spanishDate(new Date(tx.datetime)) %>
+            <strong>Fecha y hora (GMT -5):</strong> <%= spanishDate(new Date(tx.datetime), TIME_SHIFT) %>
             </p>
             <hr />
             <% } %>

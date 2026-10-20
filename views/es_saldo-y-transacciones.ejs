@@ -21,8 +21,8 @@
 								<%= tx.amount %>
 							</span>
 							<br />
-							<strong>Fecha y hora: </strong>
-							<%= spanishDate(new Date(tx.datetime)) %><br />
+							<strong>Fecha y hora (GMT -5): </strong>
+							<%= spanishDate(new Date(tx.datetime), TIME_SHIFT) %><br />
 							<strong>Por concepto de: </strong>
 							<%= tx.purpose %><br />
 							<strong>Id. de transacción: </strong>

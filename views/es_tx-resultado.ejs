@@ -29,8 +29,8 @@
 					<%= formatCurrency(amount) %>
 				</span>
 				<br />
-				<strong>Fecha y hora: </strong>
-				<%= spanishDate(new Date(datetime)) %><br />
+				<strong>Fecha y hora (GMT -5): </strong>
+				<%= spanishDate(new Date(datetime), TIME_SHIFT) %><br />
 				<strong>Por concepto de: </strong> <%= purpose %>
 				<% if (txId !== null) { %>
 					<br />

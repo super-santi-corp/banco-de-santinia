@@ -38,6 +38,7 @@ function formatCurrency(amount: number) {
 server.locals.spanishDate = spanishDate;
 server.locals.esperantoDate = esperantoDate;
 server.locals.formatCurrency = formatCurrency;
+server.locals.TIME_SHIFT = -5; // GMT -5
 
 server.disable('x-powered-by');
 server.set('view engine', 'ejs');

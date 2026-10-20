@@ -21,8 +21,8 @@
 								<%= tx.amount %>
 							</span>
 							<br />
-							<strong>Dato kaj tempo: </strong>
-							<%= esperantoDate(new Date(tx.datetime)) %><br />
+							<strong>Dato kaj tempo (GMT -5): </strong>
+							<%= esperantoDate(new Date(tx.datetime), TIME_SHIFT) %><br />
 							<strong>Kialo: </strong>
 							<%= tx.purpose %><br />
 							<strong>Transakcia identigilo: </strong>

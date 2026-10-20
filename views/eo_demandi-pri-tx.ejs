@@ -28,7 +28,7 @@
             <strong>Transakcia identigilo:</strong> <code><%= tx.id %></code><br />
             <strong>Kvanto:</strong> <%= formatCurrency(tx.amount) %><br />
             <strong>Kialo:</strong> <%= tx.purpose %><br />
-            <strong>Dato kaj tempo:</strong> <%= esperantoDate(new Date(tx.datetime)) %>
+            <strong>Dato kaj tempo (GMT -5):</strong> <%= esperantoDate(new Date(tx.datetime), TIME_SHIFT) %>
             </p>
             <hr />
             <% } %>
