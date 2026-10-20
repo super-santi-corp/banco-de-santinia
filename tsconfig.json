@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"types": ["node"],
+		"rootDir": "src/",
+		"outDir": "dist/",
+		"strict": true
+	}
+}

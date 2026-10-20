@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Transferir fondos - Banco de Santinia</title>
+		<link rel="stylesheet" href="/stil.css" />
+	</head>
+	<body>
+		<h1>Transferir fondos</h1>
+		<form action="/es/transferir-fondos" method="post">
+			<input type="hidden" name="idem" value="<%= idempotencyNonce %>" />
+
+			<label for="payee">Número de cuenta destino: </label>
+			<input type="text" id="payee" name="ricevanto" maxlength="18" required />
+			<br />
+
+			<label for="amount">Cantidad: </label>
+			<input
+				type="number"
+				id="amount"
+				name="kvanto"
+				min="0"
+				step="0.01"
+				required
+			/>
+			<br />
+
+			<label for="purpose">Por concepto de: </label>
+			<input type="text" id="purpose" name="kialo" maxlength="256" />
+			<br />
+
+			<br />
+
+			<button type="submit">Transferir fondos</button>
+		</form>
+	</body>
+</html>

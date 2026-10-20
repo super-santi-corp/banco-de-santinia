@@ -1,0 +1,54 @@
+body {
+	font-family: system-ui, sans-serif;
+}
+
+.tx-sukcesa,
+.pli-ol-nul,
+.tx-aprobita {
+	color: green;
+}
+
+.tx-stato {
+    padding: 1px 3px;
+    border: 1px solid;
+    margin: 0 30px;
+}
+
+.tx-malsukcesa,
+.malpli-ol-nul,
+.tx-rifuzita {
+	color: red;
+}
+
+.tx-atendanta {
+	color: orange;
+}
+
+.tx-nekonata {
+	color: gray;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background: black;
+		color: white;
+	}
+
+	a {
+		color: #008cff;
+	}
+
+	a:visited {
+		color: #d560ff;
+	}
+
+	.tx-sukcesa,
+	.pli-ol-nul,
+	.tx-aprobita {
+		color: yellowgreen;
+	}
+
+	.tx-atendanta {
+		color: orange;
+	}
+}

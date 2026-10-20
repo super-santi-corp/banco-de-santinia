@@ -1,3 +1,7 @@
+# Private / secret directories
+private
+secrets
+
 # Logs
 logs
 *.log

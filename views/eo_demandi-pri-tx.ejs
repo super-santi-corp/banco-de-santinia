@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Demandi pri transakcio - Banko de Santinio</title>
+        <link rel="stylesheet" href="/stil.css" />
+    </head>
+    <body>
+        <h1>Demandi pri transakcio</h1>
+        <% if (tx === null && errorMessage !== '') { %>
+            <span style="color: red"><%= errorMessage %></span>
+        <% } else if (tx !== null) { %>
+            <h4>
+                <%= tx.payer %> &rarr; <%= tx.payee %>
+                <% if (tx.status === 'approved') { %>
+                    <span class="tx-stato tx-aprobita">APROBITA</span>
+                <% } else if (tx.status === 'declined') { %>
+                    <span class="tx-stato tx-rifuzita">RIFUZITA</span>
+                <% } else if (tx.status === 'pending') { %>
+                    <span class="tx-stato tx-atendanta">ATENDANTA</span>
+                <% } else { %>
+                    <span class="tx-stato tx-nekonata">NEKONATA</span>
+                <% } %>
+            </h4>
+        <p>
+        <strong>Transakcia identigilo:</strong> <code><%= tx.id %></code><br />
+        <strong>Kvanto:</strong> <%= formatCurrency(tx.amount) %><br />
+        <strong>Kialo:</strong> <%= tx.purpose %><br />
+        <strong>Dato kaj tempo:</strong> <%= esperantoDate(new Date(tx.datetime)) %>
+        </p>
+        <hr />
+        <% } %>
+        <form action="/eo/demandi-pri-tx">
+            <label for="txid">Transakcia identigilo: </label>
+            <input type="text" id="txid" name="id" required />
+            
+            <br /><br />
+            
+            <button type="submit">Serĉi</button>
+        </form>
+    </body>
+</html>

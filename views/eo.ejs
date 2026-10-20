@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="eo">
+	<head>
+		<title>Banko de Santinio (esperanto)</title>
+		<link rel="stylesheet" href="/stil.css" />
+	</head>
+	<body>
+		<h1>Bonvenon al la Banko de Santinio!</h1>
+		<% if (username) { %>
+			<h3>
+				Aŭtentigita kiel <code><%= username %></code> |
+				<a href="/elsaluti">Elsaluti</a>
+			</h3>
+		<% } else { %>
+			<h3>
+				Ne aŭtentigita |
+			<a href="/eo/ensaluti">Ensaluti</a>
+			</h3>
+		<% } %>
+		
+		<% if (username) { %>
+		<ul>
+			<li><a href="/eo/saldo-kaj-transakcioj">Vidi saldon kaj transakciojn</a></li>
+			<li><a href="/eo/transfiri-financon">Transfiri financon</a></li>
+			<li><a href="/eo/demandi-pri-tx">Demandi pri transakcioj</a></li>
+		</ul>
+		<% } %>
+	</body>
+</html>

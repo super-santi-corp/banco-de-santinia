@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="eo">
+    <head>
+        <title>Ensaluti en la Banko de Santinio</title>
+        <link rel="stylesheet" href="/stil.css" />
+    </head>
+    <body>
+        <h1>Ensaluti</h1>
+
+        <% if (error) { %>
+            <span style="color: red"><%= error.message %> (<%= error.code %>)</span>
+        <% } %>
+
+        <form action="/eo/ensaluti" method="post">
+            <label for="username">Konta nombro: </label>
+            <input type="text" id="username" name="uzantnomo" required />
+
+            <br />
+
+            <label for="password">Tokeno: </label>
+            <input type="password" id="password" name="tokeno" required />
+            
+            <br /><br />
+            
+            <button type="submit">Ensaluti</button>
+        </form>
+    </body>
+</html>

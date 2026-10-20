@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Resultados de la transacción</title>
+		<link rel="stylesheet" href="/stil.css" />
+	</head>
+	<body>
+		<h1>Resultados de la transacción</h1>
+		<p class="tx-detaloj">
+			<h4>
+				<%= sourceAccount %> &rarr; <%= destinationAccount %>
+				<% if (status === 'approved') { %>
+					<span class="tx-stato tx-aprobita">APROBADA</span>
+				<% } else if (status === 'declined') { %>
+					<span class="tx-stato tx-rifuzita">RECHAZADA</span>
+				<% } else if (status === 'pending') { %>
+					<span class="tx-stato tx-atendanta">PENDIENTE</span>
+				<% } else { %>
+					<span class="tx-stato tx-nekonata">DESCONOCIDA</span>
+				<% } %>
+			</h4>
+			<strong>Monto: </strong>
+			<span
+				class="tx-kvanto"
+			>
+				<%= formatCurrency(amount) %>
+			</span>
+			<br />
+			<strong>Fecha y hora: </strong>
+			<%= spanishDate(new Date(datetime)) %><br />
+			<strong>Por concepto de: </strong> <%= purpose %>
+			<% if (txId !== null) { %>
+				<br />
+				<strong>Id. de transacción: </strong>
+				<code><%= txId %></code>
+			<% } %>
+			<% if (status === 'declined') { %>
+				<br /><br />
+				<span style="color: red;"><%= errorMessage %></span>
+			<% } %>
+		</p>
+	</body>
+</html>
