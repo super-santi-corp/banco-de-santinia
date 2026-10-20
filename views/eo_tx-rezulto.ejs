@@ -3,42 +3,45 @@
 	<head>
 		<title>Rezulto de transakcio</title>
         <meta name="description" content="Banko de Santinio: la centra banko de Santiniunio." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="/stil.css" />
 	</head>
 	<body>
 		<h1>Rezulto de transakcio</h1>
-		<p class="tx-detaloj">
-			<h4>
-				<%= sourceAccount %> &rarr; <%= destinationAccount %>
-				<% if (status === 'approved') { %>
-					<span class="tx-stato tx-aprobita">APROBITA</span>
-				<% } else if (status === 'declined') { %>
-					<span class="tx-stato tx-rifuzita">RIFUZITA</span>
-				<% } else if (status === 'pending') { %>
-					<span class="tx-stato tx-atendanta">ATENDANTA</span>
-				<% } else { %>
-					<span class="tx-stato tx-nekonata">NEKONATA</span>
-				<% } %>
-			</h4>
-			<strong>Kvanto: </strong>
-			<span
-				class="tx-kvanto"
-			>
-				<%= formatCurrency(amount) %>
-			</span>
-			<br />
-			<strong>Dato kaj tempo: </strong>
-			<%= esperantoDate(new Date(datetime)) %><br />
-			<strong>Kialo: </strong> <%= purpose %>
-			<% if (txId !== null) { %>
+		<main>
+			<p class="tx-detaloj">
+				<h4>
+					<%= sourceAccount %> &rarr; <%= destinationAccount %>
+					<% if (status === 'approved') { %>
+						<span class="tx-stato tx-aprobita">APROBITA</span>
+					<% } else if (status === 'declined') { %>
+						<span class="tx-stato tx-rifuzita">RIFUZITA</span>
+					<% } else if (status === 'pending') { %>
+						<span class="tx-stato tx-atendanta">ATENDANTA</span>
+					<% } else { %>
+						<span class="tx-stato tx-nekonata">NEKONATA</span>
+					<% } %>
+				</h4>
+				<strong>Kvanto: </strong>
+				<span
+					class="tx-kvanto"
+				>
+					<%= formatCurrency(amount) %>
+				</span>
 				<br />
-				<strong>Transakcia identigilo: </strong>
-				<code><%= txId %></code>
-			<% } %>
-			<% if (status === 'declined') { %>
-				<br /><br />
-				<span style="color: red;"><%= errorMessage %></span>
-			<% } %>
-		</p>
+				<strong>Dato kaj tempo: </strong>
+				<%= esperantoDate(new Date(datetime)) %><br />
+				<strong>Kialo: </strong> <%= purpose %>
+				<% if (txId !== null) { %>
+					<br />
+					<strong>Transakcia identigilo: </strong>
+					<code><%= txId %></code>
+				<% } %>
+				<% if (status === 'declined') { %>
+					<br /><br />
+					<span style="color: red;"><%= errorMessage %></span>
+				<% } %>
+			</p>
+		</main>
 	</body>
 </html>

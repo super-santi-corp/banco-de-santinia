@@ -3,6 +3,7 @@
     <head>
         <title>Ensaluti en la Banko de Santinio</title>
         <meta name="description" content="Banko de Santinio: la centra banko de Santiniunio." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/stil.css" />
     </head>
     <body>
@@ -12,18 +13,18 @@
             <span style="color: red"><%= error.message %> (<%= error.code %>)</span>
         <% } %>
 
-        <form action="/eo/ensaluti" method="post">
-            <label for="username">Konta nombro: </label>
-            <input type="text" id="username" name="uzantnomo" required />
-
-            <br />
-
-            <label for="password">Tokeno: </label>
-            <input type="password" id="password" name="tokeno" required />
+        <main>
+            <form action="/eo/ensaluti" method="post">
+                <label for="username">Konta nombro: </label>
+                <input type="text" id="username" name="uzantnomo" required />
+                <br />
+                <label for="password">Tokeno: </label>
+                <input type="password" id="password" name="tokeno" required />
             
-            <br /><br />
+                <br /><br />
             
-            <button type="submit">Ensaluti</button>
-        </form>
+                <button type="submit">Ensaluti</button>
+            </form>
+        </main>
     </body>
 </html>

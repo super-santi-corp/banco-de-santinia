@@ -3,28 +3,32 @@
 	<head>
 		<title>Banco de Santinia (español)</title>
         <meta name="description" content="Banco de Santinia: el banco central de la Unión Santiniana." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="/stil.css" />
 	</head>
 	<body>
 		<h1>¡Bienvenido al Banco de Santinia!</h1>
-		<% if (username) { %>
-			<h3>
-				Autenticado como <code><%= username %></code> |
-				<a href="/elsaluti">Cerrar sesión</a>
-			</h3>
-		<% } else { %>
-			<h3>
-				No autenticado |
-			<a href="/es/inic-ses">Iniciar sesión</a>
-			</h3>
-		<% } %>
-		
-		<% if (username) { %>
-		<ul>
-			<li><a href="/es/saldo-y-transacciones">Ver saldo y transacciones</a></li>
-			<li><a href="/es/transferir-fondos">Transferir fondos</a></li>
-			<li><a href="/es/consultar-tx">Consultar transacciones</a></li>
-		</ul>
-		<% } %>
+		<main>
+			<% if (username) { %>
+				<h2>
+					Autenticado como <code><%= username %></code> |
+					<a href="/elsaluti">Cerrar sesión</a>
+				</h2>
+			<% } else { %>
+				<h2>
+					No autenticado |
+				<a href="/es/inic-ses">Iniciar sesión</a> |
+				<a href="/es/consultar-tx">Consultar transacciones</a>
+			</h2>
+			<% } %>
+			
+			<% if (username) { %>
+				<ul>
+					<li><a href="/es/saldo-y-transacciones">Ver saldo y transacciones</a></li>
+					<li><a href="/es/transferir-fondos">Transferir fondos</a></li>
+					<li><a href="/es/consultar-tx">Consultar transacciones</a></li>
+			</ul>
+			<% } %>
+		</main>
 	</body>
 </html>

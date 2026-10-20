@@ -3,6 +3,7 @@
     <head>
         <title>Inicia sesión en el Banco de Santinia</title>
         <meta name="description" content="Iniciar sesión - Banco de Santinia" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/stil.css" />
     </head>
     <body>
@@ -12,18 +13,18 @@
             <span style="color: red"><%= error.message %> (<%= error.code %>)</span>
         <% } %>
 
-        <form action="/es/inic-ses" method="post">
-            <label for="username">Número de cuenta: </label>
-            <input type="text" id="username" name="uzantnomo" required />
-
-            <br />
-
-            <label for="password">Token: </label>
-            <input type="password" id="password" name="tokeno" required />
+        <main>
+            <form action="/es/inic-ses" method="post">
+                <label for="username">Número de cuenta: </label>
+                <input type="text" id="username" name="uzantnomo" required />
+                <br />
+                <label for="password">Token: </label>
+                <input type="password" id="password" name="tokeno" required />
             
-            <br /><br />
+                <br /><br />
             
-            <button type="submit">Iniciar sesión</button>
-        </form>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+        </main>
     </body>
 </html>

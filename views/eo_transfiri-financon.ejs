@@ -3,35 +3,33 @@
 	<head>
 		<title>Transfiri financon - Banko de Santinio</title>
         <meta name="description" content="Banko de Santinio: la centra banko de Santiniunio." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="/stil.css" />
 	</head>
 	<body>
 		<h1>Transfiri financon</h1>
-		<form action="/eo/transfiri-financon" method="post">
-			<input type="hidden" name="idem" value="<%= idempotencyNonce %>" />
-
-			<label for="payee">Nombro de ricevanta konto: </label>
-			<input type="text" id="payee" name="ricevanto" maxlength="18" required />
-			<br />
-
-			<label for="amount">Kvanto: </label>
-			<input
-				type="number"
-				id="amount"
-				name="kvanto"
-				min="0"
-				step="0.01"
-				required
-			/>
-			<br />
-
-			<label for="purpose">Kialo: </label>
-			<input type="text" id="purpose" name="kialo" maxlength="256" />
-			<br />
-
-			<br />
-
-			<button type="submit">Transfiri financon</button>
-		</form>
+		<main>
+			<form action="/eo/transfiri-financon" method="post">
+				<input type="hidden" name="idem" value="<%= idempotencyNonce %>" />
+				<label for="payee">Nombro de ricevanta konto: </label>
+				<input type="text" id="payee" name="ricevanto" maxlength="18" required />
+				<br />
+				<label for="amount">Kvanto: </label>
+				<input
+					type="number"
+					id="amount"
+					name="kvanto"
+					min="0"
+					step="0.01"
+					required
+				/>
+				<br />
+				<label for="purpose">Kialo: </label>
+				<input type="text" id="purpose" name="kialo" maxlength="256" />
+				<br />
+				<br />
+				<button type="submit">Transfiri financon</button>
+			</form>
+		</main>
 	</body>
 </html>
