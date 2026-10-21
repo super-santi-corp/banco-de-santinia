@@ -19,7 +19,12 @@ const server = express();
 const port = Number(process.env.PORT ?? 8080);
 const MONGO_URI = process.env.MONGO_URI ?? 'mongodb://localhost:27017';
 const DB_NAME = process.env.DB_NAME ?? 'bank';
-const stylesheet = fs.readFileSync('./stil.css');
+let stylesheet = fs.readFileSync('./stil.css');
+
+if (process.env.NODE_ENV !== 'production')
+	fs.watchFile('./stil.css', { interval: 1000 }, () => {
+		stylesheet = fs.readFileSync('./stil.css');
+	});
 
 // Conexión y colecciones de MongoDB
 let client: MongoClient;
@@ -175,7 +180,6 @@ server.use((req, res, next) => {
 // ==========================================
 server.get('/es', async (req, res) => {
 	const sessionCookie = req.cookies.seanco;
-	let isLoggedIn = false;
 	let username: string | null = null;
 
 	if (sessionCookie) {
@@ -185,10 +189,7 @@ server.get('/es', async (req, res) => {
 				username: u,
 				nonce: n
 			});
-			if (sessionDoc) {
-				isLoggedIn = true;
-				username = u;
-			}
+			if (sessionDoc) username = u;
 		}
 	}
 
@@ -450,7 +451,7 @@ server.post('/es/transferir-fondos', async (req, res) => {
 			purpose,
 			txId
 		});
-	} catch (err: any) {
+	} catch {
 		return res.status(500).render('es_tx-resultado', {
 			sourceAccount: payer ?? '(desconocido)',
 			destinationAccount: payee,
@@ -471,7 +472,6 @@ server.post('/es/transferir-fondos', async (req, res) => {
 // ==========================================
 server.get('/eo', async (req, res) => {
 	const sessionCookie = req.cookies.seanco;
-	let isLoggedIn = false;
 	let username: string | null = null;
 
 	if (sessionCookie) {
@@ -481,10 +481,7 @@ server.get('/eo', async (req, res) => {
 				username: u,
 				nonce: n
 			});
-			if (sessionDoc) {
-				isLoggedIn = true;
-				username = u;
-			}
+			if (sessionDoc) username = u;
 		}
 	}
 
@@ -743,7 +740,7 @@ server.post('/eo/transfiri-financon', async (req, res) => {
 			purpose,
 			txId
 		});
-	} catch (err: any) {
+	} catch {
 		return res.status(500).render('eo_tx-rezulto', {
 			sourceAccount: payer ?? '(nekonata)',
 			destinationAccount: payee,
@@ -773,7 +770,7 @@ server.use((_, res) => {
 });
 
 // Inicialización de colecciones, índices TTL y arranque del servidor
-(async function start() {
+void (async function start() {
 	try {
 		client = new MongoClient(MONGO_URI);
 		await client.connect();

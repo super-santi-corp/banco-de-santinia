@@ -34,9 +34,14 @@ body {
 	border-radius: 4px;
 }
 
+label {
+	display: block;
+	margin-bottom: 4px;
+}
+
 .butono-sendi {
-	background-color: darkblue;
-	color: white;
+	background-color: rgb(255, 208, 0);
+	color: black;
 }
 
 .butono-sercxi {
@@ -45,7 +50,7 @@ body {
 }
 
 .butono-ensaluti {
-	background-color: darkblue;
+	background-color: #5b5beb;
 	color: white;
 }
 
